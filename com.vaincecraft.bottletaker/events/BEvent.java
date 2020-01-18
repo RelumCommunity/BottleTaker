@@ -12,11 +12,13 @@ import com.vaincecraft.bottletaker.main.Main;
 public class BEvent implements Listener {
 	@EventHandler
 	public void onEat(final PlayerItemConsumeEvent e) {
-		final ItemStack bottle = new ItemStack(Material.GLASS_BOTTLE);
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
-			public void run() {
-				e.getPlayer().getInventory().removeItem(new ItemStack[] { bottle });
-			}
-		}, 2);
+		if(!(e.getPlayer().hasPermission("bottletaker.bypass"))) {
+			final ItemStack bottle = new ItemStack(Material.GLASS_BOTTLE);
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstance(), new Runnable() {
+				public void run() {
+					e.getPlayer().getInventory().removeItem(new ItemStack[] { bottle });
+				}
+			}, 2);
+		}
 	}
 }
