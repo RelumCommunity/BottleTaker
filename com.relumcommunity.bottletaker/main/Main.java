@@ -10,7 +10,7 @@ import com.relumcommunity.bottletaker.events.BEvent;
 
 public class Main extends JavaPlugin {
     public static Main plugin;
-    public String pluginVersion = "V.1.9";
+    public String pluginVersion = "V.2.0";
     
     public void onEnable() {
     	plugin = this;
